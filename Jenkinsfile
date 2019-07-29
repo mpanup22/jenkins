@@ -1,10 +1,8 @@
 #!groovy
 
 pipeline {
-    agent { label 'cng' }
-    environment {
-        AWS_ROLE = "ca_cng_jenkins"
-    }
+    agent 
+   
     parameters {
         choice(name: 'env', choices: 'DEV', description: 'Select Environment')
         choice(name: 'action', choices: 'plan\napply\nplan-destroy\ndestroy', description: 'Select Action')
