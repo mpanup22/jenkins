@@ -9,7 +9,7 @@ init:
 	@echo "initialize remote state file"
 	cd layers/$(LAYER) && \
 	rm -rf .terraform/modules/ && \
-	terraform init -reconfigure -no-color
+	terraform init -backend-config="access_key=AKIAUNBWVIC3N2DRCJLD" -backend-config="secret_key=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" 
 
 validate: init
 	@echo "running terraform validate"
