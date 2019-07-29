@@ -23,7 +23,7 @@ plan: validate
 apply: plan
 	@echo "running terraform apply"
 	cd layers/$(LAYER) && \
-	terraform apply -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" 
+	terraform apply -var "access_key=$ access_key" -var "secret_key=$ secret_key" 
 
 plan-destroy: validate
 	@echo "running terraform plan -destroy"
