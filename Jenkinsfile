@@ -2,10 +2,9 @@
 
 pipeline {
     agent 
-   
     parameters {
         choice(name: 'env', choices: 'DEV', description: 'Select Environment')
-        choice(name: 'action', choices: 'plan\napply\nplan-destroy\ndestroy', description: 'Select Action')
+        choice(name: 'action', choices: 'init\nplan\napply\nplan-destroy\ndestroy', description: 'Select Action')
     }
     stages {
         stage('Run Terraform') {
