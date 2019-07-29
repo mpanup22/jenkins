@@ -9,7 +9,7 @@ init:
 	@echo "initialize remote state file"
 	cd layers/$(LAYER) && \
 	rm -rf .terraform/modules/ && \
-	terraform init -backend-config -var "aws_accesskey=$ aws_accesskey" -backend-config -var "aws_secretkey=$ aws_secretkey" 
+	terraform init -backend-config= -var "aws_accesskey=$ aws_accesskey" -backend-config= -var "aws_secretkey=$ aws_secretkey" 
 validate: init
 	@echo "running terraform validate"
 	cd layers/$(LAYER) && \
