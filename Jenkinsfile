@@ -3,7 +3,7 @@
 pipeline {
     agent any
 	 environment {
-        AWS_ROLE = "Terraformrole"
+        AWS_ROLE = "DEV_ROLE_KEY1"
     }
    
     parameters {
