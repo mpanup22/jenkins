@@ -16,6 +16,6 @@ description = "availability_zone"
      description = "instance_type"
  }
 
- ##variable "key_name" {
-   ##  description = "key_name"
-## }
+ variable "key_name" {
+    description = "key_name"
+ }
