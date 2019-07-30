@@ -1,7 +1,7 @@
 ## Before we start test that we have the mandatory executables available
-EXECUTABLES = git terraform
-K := $(foreach exec,$(EXECUTABLES),\
-$(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH, consider apt-get install $(exec)")))
+##EXECUTABLES = git terraform
+##K := $(foreach exec,$(EXECUTABLES),\
+##$(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH, consider apt-get install $(exec)")))
 
 .PHONY: plan
 
@@ -19,6 +19,8 @@ validate: init
 plan: validate
 	@echo "running terraform plan"
 	cd layers/$(LAYER) && \
+	$ export AWS_ACCESS_KEY_ID="anaccesskey"
+$ export AWS_SECRET_ACCESS_KEY="asecretkey"
 	terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" 
 
 apply: plan
