@@ -1,9 +1,8 @@
-variable "access_key" {
-description = "access key"
+variable "aws_accesskey" {
+   type = "string"
 }
-
-variable "secret_key" {
-description = "secret key"
+variable "aws_secretkey" {
+   type = "string"
 }
 variable "region" {
 description = "region"
