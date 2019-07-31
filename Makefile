@@ -19,7 +19,7 @@ validate: init
 plan: validate
 	@echo "running terraform plan"
 	cd layers/$(LAYER) && \
-	terraform plan -auto-approve -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
+	terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 apply: plan
 	@echo "running terraform apply"
