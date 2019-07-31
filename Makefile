@@ -9,29 +9,29 @@ init:
 	@echo "initialize remote state file"
 	cd layers/$(LAYER) && \
 	rm -rf .terraform/modules/ && \
-	terraform init -reconfigure -no-color
+	terraform init -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 validate: init
 	@echo "running terraform validate"
 	cd layers/$(LAYER) && \
-	terraform validate -no-color
+	terraform validate -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 plan: validate
 	@echo "running terraform plan"
 	cd layers/$(LAYER) && \
-	terraform plan -no-color
+	terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 apply: plan
 	@echo "running terraform apply"
 	cd layers/$(LAYER) && \
-	terraform apply -auto-approve -no-color
+	terraform apply -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 plan-destroy: validate
 	@echo "running terraform plan -destroy"
 	cd layers/$(LAYER) && \
-	terraform plan -destroy -no-color
+	terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 destroy: init
 	@echo "running terraform destroy"
 	cd layers/$(LAYER) && \
-	terraform destroy -force -no-color
+	terraform destroy -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
