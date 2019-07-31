@@ -1,9 +1,9 @@
-##variable "aws_accesskey" {
-  ## type = "string"
-##}
-##variable "aws_secretkey" {
- ##  type = "string"
-##}
+variable "aws_accesskey" {
+   type = "string"
+}
+variable "aws_secretkey" {
+   type = "string"
+}
 variable "region" {
 description = "region"
 }
