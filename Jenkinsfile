@@ -2,6 +2,10 @@
 
 pipeline {
     agent any
+	 environment {
+        AWS_ROLE = "DEV_ROLE_KEY1"
+    }
+   
     parameters {
         choice(name: 'env', choices: 'DEV', description: 'Select Environment')
         choice(name: 'action', choices: 'init\nplan\napply\nplan-destroy\ndestroy', description: 'Select Action')
@@ -15,12 +19,13 @@ pipeline {
              steps {
 
                 script {
+                    sh 'chmod +x infra.sh'
                     if (params.env == 'DEV')
-                        sh "make $INFRA_ACTION"
+                        sh 'AWS_ACCOUNT_ID=3029-0983-3398 ./infra.sh'
                 }
             }
 		
+        } // stage terraform
+
         }
-    }//stages
- 
-}//pipeline
+    }
