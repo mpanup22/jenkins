@@ -9,7 +9,7 @@ init:
 	@echo "initialize remote state file"
 	cd layers/$(LAYER) && \
 	sudo rm -rf .terraform/modules/ && \
-	sudo chmod 777 layers && \
+	sudo chmod 777 layers/DEV && \
         export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
         export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
 	terraform init -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
