@@ -20,6 +20,7 @@ pipeline {
 
                 script {
                     sh 'chmod 777 infra.sh'
+	            sh 'chmod 777 Jenkinsfile'
                     if (params.env == 'DEV')
                         sh 'AWS_ACCOUNT_ID=3029-0983-3398 ./infra.sh'
                 }
