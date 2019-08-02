@@ -21,7 +21,7 @@ pipeline {
                 script {
                     sh 'chmod +x infra.sh'
                     if (params.env == 'DEV')
-                        sh 'AWS_ACCOUNT_ID=3029-0983-3398 ./infra.sh'
+                       sudo sh 'AWS_ACCOUNT_ID=3029-0983-3398 ./infra.sh'
                 }
             }
 		
