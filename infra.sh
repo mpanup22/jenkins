@@ -6,7 +6,7 @@ export AWS_SECRET_ACCESS_KEY=`cat assume-role-output.txt | jq -c '.Credentials.S
 export AWS_SESSION_TOKEN=`cat assume-role-output.txt | jq -c '.Credentials.SessionToken' | tr -d '"' | tr -d ' '`
 rm -f assume-role-output.txt
 
-export TF_VAR_account_id=$ AWS_ACCOUNT_ID
+export TF_VAR_account_id= $ AWS_ACCOUNT_ID
 
 set +x
 echo "=== Terraform $INFRA_ACTION for $LAYER ==="
