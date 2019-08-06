@@ -40,7 +40,7 @@ pipeline {
 	
 	
 	
-    stages {
+    stage {
         stage('Run Terraform') {
             environment {
                 LAYER = "${params.env}"
