@@ -16,24 +16,20 @@ pipeline {
 	    
 	    stage('git') {
 		    when {
-    expression { 
-        params.action == 'apply'
-        
-   	 }
-	}
-   
-		   
-            steps {
-                  git 'https://github.com/wakaleo/game-of-life.git'
-                 }
+                  expression { 
+                          params.action == 'apply'
+		            }
+	                }
+                 steps {
+                    git 'https://github.com/wakaleo/game-of-life.git'
+                   }
                  }// stage git
      stage('build'){
 	     when {
-    expression { 
-        params.action == 'apply'
-        
-   	 }
-	}
+               expression { 
+                 params.action == 'apply'
+                          }
+	          }
 
             steps  {
                      sh 'mvn package'
@@ -64,3 +60,4 @@ pipeline {
 
         }
     }
+}
