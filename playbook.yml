@@ -1,4 +1,4 @@
-- hosts: Name_firsttag
+- hosts: pract_tag
   become: yes
   tasks:
   - name: updating packges and install tomcat
