@@ -70,7 +70,8 @@ pipeline {
 		sh "chmod 777 ec2.py"
 		sh "chmod 777 ec2.ini" 
 		sh "./ec2.py --list --profile default --refresh-cache"
-		sh "ansible -i ec2.py -u ec2-user pract_tag -m ping "
+		sh "ansible -i ec2.py -u ec2-user tag_Name_firsttag -m ping "
+		//sh "ansible -i ec2.py -u ec2-user tag_pract_tag__pract_tag -m ping "
 	        //sh "ansible-playbook -i ec2.py -u ec2-user  playbook.yml"
 		sh "ansible-playbook playbook.yml -i ec2.py -u ec2-user --private-key=typo3.pem"
 		} 
