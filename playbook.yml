@@ -1,0 +1,13 @@
+- hosts: firsttag
+  become: yes
+  tasks:
+  - name: updating packges and install tomcat
+    yum:
+     update_cache: yes
+     name: tomcat8
+    become: yes
+  - name: copying war file
+    copy:
+     src: /var/lib/jenkins/workspace/terra_jenkins/gameoflife-web/target/gameoflife.war
+     dest: /var/lib/tomcat8/webapps/gameoflife.war
+     mode: 0777
