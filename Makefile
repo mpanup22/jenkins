@@ -9,8 +9,8 @@ init:
 	@echo "initialize remote state file"
 	cd layers/$(LAYER) && \
 	sudo rm -rf .terraform/modules/ && \
-        //export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
-	//export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
+        export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
+	export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
 	sudo terraform init -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 validate: init
@@ -21,8 +21,8 @@ validate: init
 plan: validate
 	@echo "running terraform plan"
 	cd layers/$(LAYER) && \
-	//export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
-        //export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
+	export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
+        export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
 	sudo terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 apply: plan
