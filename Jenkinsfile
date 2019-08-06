@@ -40,7 +40,6 @@ pipeline {
 	
 	
 	
-    stage {
         stage('Run Terraform') {
             environment {
                 LAYER = "${params.env}"
@@ -58,6 +57,6 @@ pipeline {
 		
         } // stage terraform
 
-        }
+        
     }
 }
