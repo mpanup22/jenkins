@@ -30,7 +30,7 @@ apply: plan
 	cd layers/$(LAYER) && \
 	export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
         export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
-	terraform apply -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve
+	sudo terraform apply -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve
 
 plan-destroy: validate
 	@echo "running terraform plan -destroy"
