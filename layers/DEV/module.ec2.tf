@@ -12,7 +12,9 @@ module "ec2" {
  }
  module "kms" {
    source = "../../modules/kms"
-  
-
-}
+  }
+   
+    module "ebs" {
+   source = "../../modules/ebs"
+      }
  
