@@ -1,7 +1,7 @@
 resource "aws_volume_attachment" "ebs_att" {
 device_name = "/dev/sdh"
 volume_id = "${aws_ebs_volume.pract.id}"
-instance_id = "${aws_instance.firstmachine.id}"
+instance_id = "${ec2.aws_instance.firstmachine.id}"
  }
 data "aws_kms_key" "kmskey" {
     key_id = "alias/DEV_KMS_KEY"
