@@ -24,7 +24,7 @@ pipeline {
    
 		   
             steps {
-                  git 'https://github.com/nags28/game-of-life.git'
+                  git 'https://github.com/wakaleo/game-of-life.git'
                  }
                  }// stage git
      stage('build'){
