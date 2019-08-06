@@ -35,9 +35,11 @@ apply: plan
 plan-destroy: validate
 	@echo "running terraform plan -destroy"
 	cd layers/$(LAYER) && \
-	sudo terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
+	sudo terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve
+
 destroy: init
 	@echo "running terraform destroy"
 	cd layers/$(LAYER) && \
-	sudo terraform destroy -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
+	sudo terraform destroy -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve
+
 
