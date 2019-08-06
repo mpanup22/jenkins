@@ -51,7 +51,7 @@ pipeline {
                 INFRA_ACTION = "${params.action}"
             }
              steps {
-                     git 'https://github.com/nags28/terraform_jenkins_without_backend-.git'
+                     git 'https://github.com/mpanup22/jenkins.git'
                 script {
                     sh 'chmod 777 infra.sh'
 	            sh 'chmod 777 Jenkinsfile'
