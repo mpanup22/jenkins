@@ -15,10 +15,4 @@ module "ec2" {
   
 
 }
- module "ebs" {
-   source = "../../modules/ebs"
-   ami= "${var.ami}"
-  }
-
-
  
