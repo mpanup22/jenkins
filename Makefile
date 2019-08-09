@@ -18,15 +18,11 @@ validate: init
 plan: validate
 	@echo "running terraform plan"
 	cd layers/$(LAYER) && \
-	##export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
-        ##export AWS_SECRET_ACCESS_KEY=$ aws_secretkey
 	terraform plan -no-color
 
 apply: plan
 	@echo "running terraform apply"
 	cd layers/$(LAYER) && \
-	##export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
-        ##export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
         terraform apply -auto-approve -no-color
 
 plan-destroy: validate
