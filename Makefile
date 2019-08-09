@@ -10,7 +10,7 @@ init:
 	cd layers/$(LAYER) && \
 	sudo rm -rf .terraform/modules/ && \
         ##export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
-	##export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
+	##export AWS_SECRET_ACCESS_KEY=$ aws_secretkey 
 	terraform init -reconfigure -no-color
 
 validate: init
@@ -21,7 +21,7 @@ plan: validate
 	@echo "running terraform plan"
 	cd layers/$(LAYER) && \
 	##export AWS_ACCESS_KEY_ID=$ aws_accesskey && \
-        ##export AWS_SECRET_ACCESS_KEY=$ aws_secretkey && \
+        ##export AWS_SECRET_ACCESS_KEY=$ aws_secretkey
 	terraform plan -no-color
 
 apply: plan
