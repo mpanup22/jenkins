@@ -9,7 +9,7 @@ init:
 	@echo "initialize remote state file"
 	cd layers/$(LAYER) && \
 	sudo rm -rf .terraform/modules/ && \
-        terraform init -reconfigure -no-color
+        terraform init -backend-config="bucket=pract-backend" -backend-config="key=terraform.tfstate" -backend-config="dynamodb_table=terraform-state-lock-dynamo" -backend-config="region=us-east-2"
 
 validate: init
 	@echo "running terraform validate"
@@ -32,11 +32,11 @@ apply: plan
 plan-destroy: validate
 	@echo "running terraform plan -destroy"
 	cd layers/$(LAYER) && \
-	sudo terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve
+	terraform plan -destroy -no-color
 
 destroy: init
 	@echo "running terraform destroy"
 	cd layers/$(LAYER) && \
-	sudo terraform destroy -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve
+	terraform destroy -force -no-color
 
 
