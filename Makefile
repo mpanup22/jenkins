@@ -9,7 +9,7 @@ init:
 	@echo "initialize remote state file"
 	cd layers/$(LAYER) && \
 	sudo rm -rf .terraform/modules/ && \
-        terraform init -backend-config="bucket=pract-backend" -backend-config="key=terraform.tfstate" -backend-config="dynamodb_table=terraform-state-lock-dynamo" -backend-config="region=us-east-2"
+        sudo terraform init -backend-config="bucket=pract-backend" -backend-config="key=terraform.tfstate" -backend-config="dynamodb_table=terraform-state-lock-dynamo" -backend-config="region=us-east-2"
 
 validate: init
 	@echo "running terraform validate"
